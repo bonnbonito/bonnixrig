@@ -59,6 +59,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 
 body {
 	margin: 0;
+	font-weight: 600;
 }
 
 link {
@@ -434,6 +435,12 @@ template {
 .site {
   margin: 0 auto;
   max-width: 100%;
+}
+
+.container {
+	max-width: 60em;
+	width: 100%;
+	margin: 0 auto;
 }
 
 @media (--sidebar-query) {
@@ -916,8 +923,10 @@ textarea {
 		width: 60%;
 		height: 60%;
 		border: solid black;
-		border-width: 0 2px 2px 0;
+		border-width: 3px 3px 3px 3px;
 		transform: translateY(-50%) rotate(45deg);
+		border-top: 3px solid transparent;
+    	border-left: 3px solid transparent;
 	}
 
 	.main-navigation ul ul .dropdown,

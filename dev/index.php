@@ -43,16 +43,14 @@ get_header(); ?>
 
 		endwhile;
 
-		if ( ! is_singular() ) :
-			the_posts_navigation();
-		endif;
-
 	else :
 
 		get_template_part( 'template-parts/content', 'none' );
 
 	endif;
 	?>
+
+	<button class="loadmore_btn" data-page="1">Load More</button>
 
 	</main><!-- #primary -->
 

@@ -340,9 +340,14 @@
 	font-size: calc(var(--large-font-size) / 16)rem;
 }
 
+.has-huge-font-size {
+	font-size: calc(var(--huge-font-size) / 16)rem;
+}
+
 .has-larger-font-size {
 	font-size: calc(var(--larger-font-size) / 16)rem;
 }
+
 
 /*--------------------------------------------------------------
 ## Media

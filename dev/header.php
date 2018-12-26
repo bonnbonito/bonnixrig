@@ -86,3 +86,4 @@
 				</div>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->
+		<?php the_breadcrumb(); ?>

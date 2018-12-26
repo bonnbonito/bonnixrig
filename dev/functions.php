@@ -62,16 +62,6 @@ function wprig_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background', apply_filters(
-			'wprig_custom_background_args', array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -231,26 +221,18 @@ function wprig_fonts_url() {
 	/**
 	 * Translator: If Roboto Sans does not support characters in your language, translate this to 'off'.
 	 */
-	$roboto = esc_html_x( 'on', 'Roboto Condensed font: on or off', 'wprig' );
-	/**
-	 * Translator: If Crimson Text does not support characters in your language, translate this to 'off'.
-	 */
-	$crimson_text = esc_html_x( 'on', 'Crimson Text font: on or off', 'wprig' );
+	$roboto = esc_html_x( 'on', 'Open Sans font: on or off', 'wprig' );
 
 	$font_families = array();
 
-	if ( 'off' !== $roboto ) {
-		$font_families[] = 'Roboto Condensed:400,400i,700,700i';
+	if ( 'off' !== $opensans ) {
+		$font_families[] = 'Open Sans:400,600,700';
 	}
 
-	if ( 'off' !== $crimson_text ) {
-		$font_families[] = 'Crimson Text:400,400i,600,600i';
-	}
-
-	if ( in_array( 'on', array( $roboto, $crimson_text ) ) ) {
+	if ( in_array( 'on', array( $roboto, $crimson_text ), true ) ) {
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
+			'family' => rawurlencode( implode( '|', $font_families ) ),
+			'subset' => rawurlencode( 'latin,latin-ext' ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
@@ -391,3 +373,13 @@ require get_template_directory() . '/inc/customizer.php';
  * @link https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
  */
 require get_template_directory() . '/pluggable/lazyload/lazyload.php';
+
+/**
+ * Optional: Add Breadcrumbs function.
+ */
+require get_template_directory() . '/pluggable/breadcrumbs.php';
+
+/**
+ * Optional: Add Load More Posts function.
+ */
+require get_template_directory() . '/pluggable/loadmore/loadmore.php';
